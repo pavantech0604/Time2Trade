@@ -1,0 +1,73 @@
+/* =============================================
+   BrandLogo — Single Official Logo Styles
+   ============================================= */
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.brand-logo__img {
+  display: block;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* NAVBAR VARIANT */
+.brand-logo--navbar {
+  height: 46px !important;
+  max-height: 46px !important;
+}
+
+.brand-logo--navbar .brand-logo__img {
+  height: 46px !important;
+  max-height: 46px !important;
+  max-width: 160px !important;
+  filter: drop-shadow(0 2px 8px rgba(15, 23, 36, 0.08));
+}
+
+.brand-logo--navbar:hover .brand-logo__img {
+  transform: scale(1.03);
+  filter: drop-shadow(0 4px 14px rgba(13, 148, 136, 0.2));
+}
+
+/* FOOTER VARIANT */
+.brand-logo--footer {
+  height: 56px !important;
+  max-height: 56px !important;
+}
+
+.brand-logo--footer .brand-logo__img {
+  height: 56px !important;
+  max-height: 56px !important;
+  max-width: 200px !important;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.brand-logo--footer:hover .brand-logo__img {
+  transform: scale(1.02);
+}
+
+/* Mobile responsive scaling */
+@media (max-width: 640px) {
+  .brand-logo--navbar {
+    height: 40px !important;
+    max-height: 40px !important;
+  }
+  .brand-logo--navbar .brand-logo__img {
+    height: 40px !important;
+    max-height: 40px !important;
+    max-width: 140px !important;
+  }
+}

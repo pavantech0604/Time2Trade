@@ -1,0 +1,245 @@
+/* =============================================
+   TIME2TRADE — Premium Modal System Styles
+   ============================================= */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(15, 23, 36, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-container {
+  background: var(--surface-0);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 24px 60px rgba(15, 23, 36, 0.25),
+    0 0 0 1px rgba(15, 23, 36, 0.05);
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-container--lg {
+  max-width: 760px;
+}
+
+.modal-container--xl {
+  max-width: 940px;
+}
+
+.modal-header {
+  padding: 24px 28px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  background: var(--surface-1);
+}
+
+.modal-header__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-900);
+  line-height: 1.25;
+}
+
+.modal-header__subtitle {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.modal-close-btn {
+  background: var(--surface-2);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.modal-close-btn:hover {
+  background: rgba(220, 38, 38, 0.08);
+  color: var(--red-600);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.modal-body {
+  padding: 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Modal Form Styles */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-form__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-900);
+}
+
+.modal-form__input {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-medium);
+  background: var(--surface-1);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: var(--navy-900);
+  transition: all 0.2s;
+}
+
+.modal-form__input:focus {
+  outline: none;
+  border-color: var(--teal-600);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.modal-tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--surface-2);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.modal-tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-tab.active {
+  background: #ffffff;
+  color: var(--teal-700);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Step Wizard */
+.wizard-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.wizard-steps::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: var(--border-light);
+  z-index: 0;
+}
+
+.wizard-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.wizard-step__num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-0);
+  border: 2px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.wizard-step.active .wizard-step__num {
+  background: var(--teal-600);
+  border-color: var(--teal-600);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(13, 148, 136, 0.35);
+}
+
+.wizard-step.completed .wizard-step__num {
+  background: var(--emerald-600);
+  border-color: var(--emerald-600);
+  color: #ffffff;
+}
+
+.wizard-step__title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.wizard-step.active .wizard-step__title {
+  color: var(--navy-900);
+  font-weight: 700;
+}
+
+/* Modal Responsive Mobile adjustments */
+@media (max-width: 640px) {
+  .modal-backdrop {
+    padding: 10px;
+    align-items: flex-end;
+  }
+  .modal-container {
+    max-height: 85vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .modal-header {
+    padding: 20px 20px 14px;
+  }
+  .modal-body {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,174 @@
+/* =============================================
+   FeaturesSection — Snug & Filled Card Styles
+   ============================================= */
+
+.features-section {
+  background: var(--surface-1);
+  position: relative;
+  padding: clamp(36px, 5vh, 60px) 0 !important;
+}
+
+.features__header {
+  text-align: center;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.features__header .display-md {
+  color: var(--navy-900);
+}
+
+/* --- Equal Grid --- */
+.features__bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Base card */
+.feat-card {
+  position: relative;
+  background: var(--surface-0);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.feat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feat-card__inner {
+  position: relative;
+  z-index: 1;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.feat-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feat-card__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.feat-card__title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy-900);
+  line-height: 1.3;
+}
+
+.feat-card__desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-top: 2px;
+}
+
+/* Feature footer chips */
+.feat-card__footer {
+  margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.feat-chip {
+  font-size: 10.5px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--teal-700);
+  background: rgba(13, 148, 136, 0.06);
+  padding: 4px 9px;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(13, 148, 136, 0.14);
+}
+
+/* Decorative corner gradient */
+.feat-card__deco {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.06;
+  transition: opacity 0.35s;
+}
+
+.feat-card:hover .feat-card__deco {
+  opacity: 0.12;
+}
+
+/* Icons */
+.feat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Color variants */
+/* Teal */
+.feat-card--teal:hover { border-color: rgba(13, 148, 136, 0.35); box-shadow: var(--shadow-md), 0 0 30px rgba(13, 148, 136, 0.05); }
+.feat-icon--teal { color: var(--teal-700); background: rgba(13, 148, 136, 0.08); border-color: rgba(13, 148, 136, 0.15); }
+.feat-card--teal .feat-card__deco { background: var(--teal-500); }
+
+/* Gold */
+.feat-card--gold:hover { border-color: rgba(180, 83, 9, 0.35); box-shadow: var(--shadow-md), 0 0 30px rgba(180, 83, 9, 0.05); }
+.feat-icon--gold { color: var(--gold-500); background: rgba(180, 83, 9, 0.08); border-color: rgba(180, 83, 9, 0.15); }
+.feat-card--gold .feat-card__deco { background: var(--gold-500); }
+
+/* Blue */
+.feat-card--blue:hover { border-color: rgba(30, 58, 95, 0.35); box-shadow: var(--shadow-md), 0 0 30px rgba(30, 58, 95, 0.05); }
+.feat-icon--blue { color: var(--navy-700); background: rgba(30, 58, 95, 0.08); border-color: rgba(30, 58, 95, 0.15); }
+.feat-card--blue .feat-card__deco { background: var(--navy-500); }
+
+/* Emerald */
+.feat-card--emerald:hover { border-color: rgba(5, 150, 105, 0.35); box-shadow: var(--shadow-md), 0 0 30px rgba(5, 150, 105, 0.05); }
+.feat-icon--emerald { color: var(--emerald-700); background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.15); }
+.feat-card--emerald .feat-card__deco { background: var(--emerald-500); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .features__bento {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .features__header { margin-bottom: 24px; }
+  .features__bento {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .feat-card__inner { padding: 18px 16px; gap: 8px; }
+}
