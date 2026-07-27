@@ -154,20 +154,56 @@
 
 @media (max-width: 900px) {
   .trust__stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 700px) {
+  .trust__stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
 
 @media (max-width: 580px) {
   .trust__header {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
   }
   .trust__stats-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
   }
   .trust__stat-card {
-    padding: 20px 16px;
+    padding: 18px 14px;
+  }
+  .trust__stat-number {
+    font-size: clamp(20px, 5vw, 30px);
+  }
+  .trust__stat-label {
+    font-size: 12px;
+  }
+  .trust__badges {
+    gap: 8px;
+    padding-top: 24px;
+  }
+  .trust__badge-item {
+    font-size: 12px;
+    padding: 8px 14px;
   }
 }
 
+@media (max-width: 380px) {
+  .trust__stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .trust__stat-card {
+    padding: 14px 10px;
+  }
+  .trust__stat-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 10px;
+  }
+}

@@ -216,5 +216,27 @@
   }
   .navbar__mobile-toggle {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__inner {
+    height: 64px;
+  }
+  .navbar {
+    height: 64px;
+  }
+  .navbar__mobile-link {
+    padding: 14px 0;
+    font-size: 15px;
+    min-height: 44px;
+  }
+  .navbar__mobile-ctas .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

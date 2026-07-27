@@ -435,8 +435,14 @@
   .dash-movers { grid-column: 1 / -1; grid-row: 3; }
 }
 
+@media (max-width: 768px) {
+  .dashboard__frame {
+    border-radius: var(--radius-lg);
+  }
+}
+
 @media (max-width: 640px) {
-  .dashboard__header { margin-bottom: 36px; }
+  .dashboard__header { margin-bottom: 24px; }
   .dashboard__grid {
     grid-template-columns: 1fr;
   }
@@ -450,9 +456,35 @@
   .dash-chart__timeframes { overflow-x: auto; width: 100%; }
 }
 
+@media (max-width: 480px) {
+  .dashboard__header { margin-bottom: 20px; }
+  .dash-panel { padding: 12px; }
+  .dash-frame__header { padding: 10px 14px; }
+  .dash-chart__timeframes .tf-btn {
+    padding: 4px 8px;
+    font-size: 10.5px;
+  }
+  .wl-price { font-size: 12px; }
+  .wl-symbol { font-size: 11px; }
+  .dashboard__cta {
+    gap: 12px;
+    margin-top: 24px;
+  }
+}
+
 @media (max-width: 390px) {
   .watchlist__items { grid-template-columns: 1fr; }
   .dash-right-col { grid-template-columns: 1fr; }
-  .dash-panel { padding: 12px; }
+  .dash-panel { padding: 10px; }
+  .dashboard__cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
+
+@media (max-width: 360px) {
+  .dash-panel { padding: 8px; }
+  .dash-panel__title { font-size: 10px; }
+}
+
 

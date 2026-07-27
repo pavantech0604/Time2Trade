@@ -41,7 +41,7 @@ export default function AuthModal() {
               <div className="modal-header__subtitle">
                 {tab === 'signin'
                   ? 'Access real-time intelligence & live trading terminal'
-                  : 'Start trading with SEBI registered research intelligence'}
+                  : 'Start trading with premium research intelligence'}
               </div>
             </div>
             <button className="modal-close-btn" onClick={closeModal} aria-label="Close modal">
@@ -113,7 +113,7 @@ export default function AuthModal() {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '16px', fontSize: '12px', color: 'var(--text-muted)' }}>
                   <ShieldCheck size={14} color="var(--emerald-600)" />
-                  256-Bit Encrypted & SEBI Compliant Connection
+                  256-Bit Encrypted & Secure Encrypted Connection
                 </div>
               </form>
             )}

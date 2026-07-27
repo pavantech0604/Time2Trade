@@ -5,7 +5,7 @@ import './CtaSection.css'
 
 const benefits = [
   { icon: Zap, text: 'Zero brokerage on equity delivery' },
-  { icon: Shield, text: 'SEBI regulated & DDPI secured' },
+  { icon: Shield, text: '256-bit encrypted & DDPI secured' },
   { icon: TrendingUp, text: 'First month of research access free' },
 ]
 
@@ -14,21 +14,22 @@ export default function CtaSection() {
 
   return (
     <section id="cta" className="cta-section">
-      {/* Animated background */}
-      <div className="cta__bg" aria-hidden="true">
-        <div className="cta__glow cta__glow--1" />
-        <div className="cta__glow cta__glow--2" />
-        <div className="cta__grid" />
-      </div>
-
       <div className="container">
-        <motion.div
-          className="cta__inner"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
-        >
+        <div className="cta__card">
+          {/* Animated background */}
+          <div className="cta__bg" aria-hidden="true">
+            <div className="cta__glow cta__glow--1" />
+            <div className="cta__glow cta__glow--2" />
+            <div className="cta__grid" />
+          </div>
+
+          <motion.div
+            className="cta__inner"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+          >
           {/* Top tag */}
           <div className="section-tag" style={{ margin: '0 auto 24px' }}>
             It is never too late to start trading
@@ -42,7 +43,7 @@ export default function CtaSection() {
           </h2>
 
           <p className="body-lg cta__subheadline">
-            Join 2.4 lakh+ traders who chose to trade smarter.
+            Join 70k+ traders who chose to trade smarter.
             Open your account in under 5 minutes —
             no paperwork, no waiting.
           </p>
@@ -80,7 +81,6 @@ export default function CtaSection() {
             <button
               className="btn btn-outline btn-lg"
               id="cta-explore-platform"
-              style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.25)' }}
               onClick={() => openDemo()}
             >
               Explore Platform
@@ -92,6 +92,7 @@ export default function CtaSection() {
             No credit card required · KYC in 5 minutes · Start trading immediately
           </p>
         </motion.div>
+        </div>
       </div>
     </section>
   )

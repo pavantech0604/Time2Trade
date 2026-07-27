@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Play, TrendingUp, Shield, Zap, BarChart2 } from 'lucide-react'
+import { ArrowRight, Play, TrendingUp, Shield, Users, Building2, MapPin, Award, Landmark, UserCheck, ChevronDown } from 'lucide-react'
 import { useModal } from '../context/ModalContext'
 import TickerStrip from './TickerStrip'
 import './HeroSection.css'
@@ -260,18 +260,21 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              onClick={() => openInfo({ title: 'Regulatory Registration & Security', subtitle: 'SEBI & Security Details' })}
+              onClick={() => openInfo({ title: 'Platform Security & Compliance', subtitle: 'Security & Infrastructure Details' })}
               style={{ cursor: 'pointer' }}
             >
               <Shield size={13} />
-              <span>SEBI Registered &bull; Bank-Grade Security &bull; Zero Brokerage on Equity Delivery</span>
+              <span>ISO 27001 Certified &bull; Bank-Grade Security &bull; Zero Brokerage on Equity Delivery</span>
             </motion.div>
 
             {/* Stat pills */}
             <div className="hero__stats">
-              <StatPill icon={TrendingUp} value="2.4L+" label="Active Traders" delay={0.8} />
-              <StatPill icon={BarChart2} value="94%" label="Signal Accuracy" delay={0.9} />
-              <StatPill icon={Zap} value="<50ms" label="Execution Speed" delay={1.0} />
+              <StatPill icon={Users} value="70K+" label="Active Traders" delay={0.7} />
+              <StatPill icon={MapPin} value="150+" label="Cities in India" delay={0.8} />
+              <StatPill icon={Building2} value="300+" label="Corporate Relations" delay={0.9} />
+              <StatPill icon={Award} value="80+ Yrs" label="Market Experience" delay={1.0} />
+              <StatPill icon={Landmark} value="150+" label="Inst. Empanelments" delay={1.1} />
+              <StatPill icon={UserCheck} value="50+" label="Research Analysts" delay={1.2} />
             </div>
           </div>
 
@@ -284,6 +287,8 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2 }}
+              onClick={() => openInfo({ title: 'Top Market Pick', subtitle: 'BAJFINANCE +2.4% Momentum Alert & Target Analysis' })}
+              title="Click to view signal details"
             >
               <TrendingUp size={16} className="badge-icon-up" />
               <div>
@@ -296,6 +301,8 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.4 }}
+              onClick={() => openInfo({ title: 'Capital Protection & Risk Management', subtitle: 'Automated Risk Limits & Institutional Stop Loss Tracking' })}
+              title="Click to view risk parameters"
             >
               <Shield size={16} className="badge-icon-safe" />
               <div>
@@ -306,6 +313,20 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      {/* Interactive Scroll Down Indicator */}
+      <motion.div
+        className="hero__scroll-indicator"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.5 }}
+        onClick={() => {
+          document.getElementById('trust')?.scrollIntoView({ behavior: 'smooth' })
+        }}
+      >
+        <span>Explore Platform</span>
+        <ChevronDown size={14} className="scroll-arrow" />
+      </motion.div>
 
       <div className="hero__bottom-fade" aria-hidden="true" />
     </section>

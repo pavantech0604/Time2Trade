@@ -172,3 +172,18 @@
   }
   .feat-card__inner { padding: 18px 16px; gap: 8px; }
 }
+
+@media (max-width: 480px) {
+  .features__header { margin-bottom: 20px; }
+  .feat-card__inner { padding: 16px 14px; gap: 7px; }
+  .feat-card__title { font-size: 15px; }
+  .feat-card__desc  { font-size: 13px; }
+  .feat-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .feat-card__inner { padding: 14px 12px; }
+}

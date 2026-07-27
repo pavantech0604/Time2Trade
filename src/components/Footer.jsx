@@ -134,13 +134,13 @@ export default function Footer() {
           <div className="footer__legal">
             <p>© 2026 TIME2TRADE Intelligence Technologies Ltd. All rights reserved.</p>
             <p className="footer__disclaimer">
-              SEBI Registration No: INH000XXXXXX | CIN: UXXXXXXXXXXXXXXXXX | NSE/BSE Member
+              CIN: UXXXXXXXXXXXXXXXXX | Exchange Empaneled & Member
             </p>
           </div>
           <div className="footer__bottom-links">
             <button className="footer__bottom-link-btn" onClick={() => handleLegalClick('Privacy Policy', 'Data Protection & Privacy Policy')}>Privacy Policy</button>
             <button className="footer__bottom-link-btn" onClick={() => handleLegalClick('Terms of Use', 'User Terms & Conditions Agreement')}>Terms of Use</button>
-            <button className="footer__bottom-link-btn" onClick={() => handleLegalClick('Risk Disclosure Statement', 'SEBI Mandated Market Risk Disclosure')}>Risk Disclosure</button>
+            <button className="footer__bottom-link-btn" onClick={() => handleLegalClick('Risk Disclosure Statement', 'Market Risk & Regulatory Disclosure')}>Risk Disclosure</button>
             <button className="footer__bottom-link-btn" onClick={() => handleLegalClick('Grievance Redressal Policy', 'Customer Support & Escalation Matrix')}>Grievance Policy</button>
           </div>
         </div>
@@ -149,8 +149,7 @@ export default function Footer() {
         <div className="footer__risk-disclosure">
           <strong>Risk Disclosure:</strong> Investments in securities market are subject to market risks.
           Read all the related documents carefully before investing. Past performance is not indicative
-          of future results. TIME2TRADE is registered with SEBI as a Research Analyst.
-          Registration does not imply a certain level of skill or training.
+          of future results. TIME2TRADE provides research intelligence and analytical market tools.
         </div>
       </div>
     </footer>

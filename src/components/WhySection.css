@@ -163,11 +163,47 @@
 @media (max-width: 1100px) {
   .why__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .why__header {
+    margin-bottom: 40px;
   }
 }
 
 @media (max-width: 640px) {
+  .why__header {
+    margin-bottom: 28px;
+    gap: 12px;
+  }
   .why__grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .why-card {
+    padding: 24px 20px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .why__header {
+    margin-bottom: 24px;
+  }
+  .why-card {
+    padding: 20px 16px;
+    gap: 10px;
+  }
+  .why-card__headline { font-size: 16px; }
+  .why-card__desc     { font-size: 13.5px; }
+  .why-stat-value     { font-size: 26px; }
+  .why-card__icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 360px) {
+  .why-card {
+    padding: 16px 14px;
   }
 }

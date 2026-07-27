@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Users, TrendingUp, BarChart2, Award, Globe, Clock } from 'lucide-react'
+import { Users, Building2, MapPin, Award, Landmark, UserCheck } from 'lucide-react'
 import { useModal } from '../context/ModalContext'
 import './TrustSection.css'
 
@@ -34,21 +34,21 @@ function CountUp({ end, suffix = '', prefix = '', duration = 2000 }) {
 }
 
 const stats = [
-  { icon: Users, value: 240, suffix: 'K+', label: 'Active Traders', sub: 'Across India', color: 'teal' },
-  { icon: TrendingUp, value: 94, suffix: '%', label: 'Signal Accuracy', sub: 'Last 12 months', color: 'emerald' },
-  { icon: BarChart2, value: 12500, suffix: '+', label: 'Research Calls', sub: 'Published to date', color: 'blue' },
-  { icon: Award, value: 8.2, suffix: 'L+', label: 'Crore Volume', sub: 'Daily traded', color: 'gold' },
-  { icon: Globe, value: 50, suffix: '+', label: 'Market Segments', sub: 'Covered daily', color: 'teal' },
-  { icon: Clock, value: 48, suffix: 'ms', label: 'Avg. Execution', sub: 'Lightning fast', color: 'blue' },
+  { icon: Users, value: 70, suffix: 'K+', label: 'Active Traders', sub: 'Across India', color: 'teal' },
+  { icon: Building2, value: 300, suffix: '+', label: 'Corporate Relationships', sub: 'Across major industries', color: 'emerald' },
+  { icon: MapPin, value: 150, suffix: '+', label: 'Cities Covered', sub: 'Pan-India footprint', color: 'blue' },
+  { icon: Award, value: 80, suffix: '+ Yrs', label: 'Market Experience', sub: 'Combined leadership tenure', color: 'gold' },
+  { icon: Landmark, value: 150, suffix: '+', label: 'Institutional Empanelments', sub: 'Banks & institutions', color: 'teal' },
+  { icon: UserCheck, value: 50, suffix: '+', label: 'Research Analysts', sub: 'Across research domains', color: 'blue' },
 ]
 
 const badges = [
-  { label: 'SEBI Registered', icon: '🛡️', detail: 'SEBI Research Analyst Registration INH000XXXXXX. Compliant with RA Regulations 2014.' },
+  { label: 'Bank-Grade Security', icon: '🛡️', detail: 'Bank-grade AES-256 SSL encryption & strict security protocols protecting customer data and assets.' },
   { label: 'NSE & BSE Member', icon: '📊', detail: 'Direct exchange clearing & data connectivity on National Stock Exchange and BSE.' },
   { label: '256-bit Encryption', icon: '🔒', detail: 'Bank-grade AES-256 SSL encryption protecting all credential & transaction channels.' },
   { label: 'ISO 27001 Certified', icon: '✅', detail: 'Certified Information Security Management Systems for customer data & trading infrastructure.' },
-  { label: 'Expert Research Team', icon: '🎯', detail: '15+ certified SEBI analysts with over 15 years average market experience.' },
-  { label: 'Real-Time Data', icon: '⚡', detail: 'Co-located tick-by-tick market feed with sub-50ms latency.' },
+  { label: 'Expert Research Team', icon: '🎯', detail: '50+ certified senior research analysts across equities, derivatives, and macro domains.' },
+  { label: 'Pan-India Footprint', icon: '🌐', detail: 'Serving active traders and investors across 150+ cities with 150+ institutional empanelments.' },
 ]
 
 export default function TrustSection() {

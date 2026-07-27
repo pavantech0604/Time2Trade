@@ -87,7 +87,7 @@ export default function InfoModal() {
             ) : (
               <div style={{ fontSize: '14.5px', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
                 <p style={{ marginBottom: '14px' }}>
-                  <strong>Regulatory Compliance:</strong> TIME2TRADE operates as a SEBI Registered Research Analyst under SEBI (Research Analysts) Regulations, 2014. Registration No: INH000XXXXXX.
+                  <strong>Security & Compliance:</strong> TIME2TRADE operates under institutional compliance standards, strict data protection, and bank-grade SSL security protocols.
                 </p>
                 <p style={{ marginBottom: '14px' }}>
                   <strong>Market Risk Warning:</strong> Trading in equities, derivatives (F&O), commodities, and currencies involves substantial risk of loss and is not suitable for every investor. Valuation of investments can fluctuate, and investors may lose more than their initial investment.

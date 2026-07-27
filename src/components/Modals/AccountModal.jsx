@@ -188,7 +188,7 @@ export default function AccountModal() {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '16px', fontSize: '12px', color: 'var(--text-muted)' }}>
                   <ShieldCheck size={14} color="var(--emerald-600)" />
-                  SEBI Registered & DigiLocker e-KYC Verified
+                  Instant e-KYC & DigiLocker Verified
                 </div>
               </form>
             )}

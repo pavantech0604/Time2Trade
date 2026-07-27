@@ -10,7 +10,7 @@ const featureChips = {
   realtime: '⚡ <5ms Latency • Level 2 Order Book',
   signals: '🎯 94% Win Rate • AI Sentiment',
   alerts: '🔔 Push, Email & Telegram Alerts',
-  research: '📊 15+ SEBI Registered Analysts',
+  research: '📊 50+ Expert Research Analysts',
   risk: '🛡️ Position Sizer • Drawdown Guard',
   watchlist: '👁️ 500+ Instruments • Heatmaps',
   portfolio: '📈 Realtime P&L • Sector Exposure',
