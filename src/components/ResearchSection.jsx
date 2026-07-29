@@ -118,8 +118,8 @@ function CallCard({ call, index, onClick }) {
 }
 
 export default function ResearchSection() {
-  const [activeTab, setActiveTab] = useState('Intraday')
-  const { openInfo } = useModal()
+  const { activeResearchTab, setActiveResearchTab, openInfo } = useModal()
+  const activeTab = activeResearchTab || 'Intraday'
 
   return (
     <section id="research" className="research-section section">
@@ -172,7 +172,7 @@ export default function ResearchSection() {
                   role="tab"
                   aria-selected={activeTab === tab}
                   className={`research__tab ${activeTab === tab ? 'active' : ''}`}
-                  onClick={() => setActiveTab(tab)}
+                  onClick={() => setActiveResearchTab(tab)}
                 >
                   {tab}
                 </button>

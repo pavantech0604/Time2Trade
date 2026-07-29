@@ -29,49 +29,7 @@
   color: var(--navy-900);
 }
 
-/* Manifesto Card Styling */
-.why__manifesto-card {
-  max-width: 720px;
-  margin: 12px auto 0;
-  padding: 18px 30px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(13, 148, 136, 0.22);
-  border-radius: 16px;
-  box-shadow: 0 12px 36px rgba(13, 148, 136, 0.08), 0 2px 8px rgba(15, 23, 36, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  position: relative;
-  overflow: hidden;
-}
-
-.why__manifesto-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 24px;
-  right: 24px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #0d9488, #d97706, transparent);
-}
-
-.manifesto-card__quote {
-  font-size: clamp(14px, 1.1vw, 16px);
-  line-height: 1.6;
-  color: var(--navy-900);
-  font-weight: 500;
-  text-align: center;
-  font-family: var(--font-body);
-}
-
-.manifesto-highlight {
-  color: var(--teal-700);
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--teal-600), var(--emerald-600));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
+/* Why Grid Layout */
 .why__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -171,36 +129,124 @@
 
 /* Color variants */
 /* Teal */
-.why-card--teal:hover { border-color: rgba(13, 148, 136, 0.35); box-shadow: var(--shadow-md), 0 0 30px rgba(13, 148, 136, 0.05); }
-.why-card--teal::before { background: linear-gradient(90deg, transparent, var(--teal-500), transparent); }
-.why-card--teal:hover::before { opacity: 1; }
-.icon--teal { color: var(--teal-700); background: rgba(13, 148, 136, 0.08); border-color: rgba(13, 148, 136, 0.15); }
-.tag--teal { color: var(--teal-700); background: rgba(13, 148, 136, 0.08); border-color: rgba(13, 148, 136, 0.15); }
-.stat--teal { color: var(--teal-700); }
+.why-card--teal:hover {
+  border-color: rgba(13, 148, 136, 0.35);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(13, 148, 136, 0.05);
+}
+
+.why-card--teal::before {
+  background: linear-gradient(90deg, transparent, var(--teal-500), transparent);
+}
+
+.why-card--teal:hover::before {
+  opacity: 1;
+}
+
+.icon--teal {
+  color: var(--teal-700);
+  background: rgba(13, 148, 136, 0.08);
+  border-color: rgba(13, 148, 136, 0.15);
+}
+
+.tag--teal {
+  color: var(--teal-700);
+  background: rgba(13, 148, 136, 0.08);
+  border-color: rgba(13, 148, 136, 0.15);
+}
+
+.stat--teal {
+  color: var(--teal-700);
+}
 
 /* Gold */
-.why-card--gold:hover { border-color: rgba(180, 83, 9, 0.35); box-shadow: var(--shadow-md), 0 0 30px rgba(180, 83, 9, 0.05); }
-.why-card--gold::before { background: linear-gradient(90deg, transparent, var(--gold-500), transparent); }
-.why-card--gold:hover::before { opacity: 1; }
-.icon--gold { color: var(--gold-500); background: rgba(180, 83, 9, 0.08); border-color: rgba(180, 83, 9, 0.15); }
-.tag--gold { color: var(--gold-500); background: rgba(180, 83, 9, 0.08); border-color: rgba(180, 83, 9, 0.15); }
-.stat--gold { color: var(--gold-500); }
+.why-card--gold:hover {
+  border-color: rgba(180, 83, 9, 0.35);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(180, 83, 9, 0.05);
+}
+
+.why-card--gold::before {
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+}
+
+.why-card--gold:hover::before {
+  opacity: 1;
+}
+
+.icon--gold {
+  color: var(--gold-500);
+  background: rgba(180, 83, 9, 0.08);
+  border-color: rgba(180, 83, 9, 0.15);
+}
+
+.tag--gold {
+  color: var(--gold-500);
+  background: rgba(180, 83, 9, 0.08);
+  border-color: rgba(180, 83, 9, 0.15);
+}
+
+.stat--gold {
+  color: var(--gold-500);
+}
 
 /* Blue */
-.why-card--blue:hover { border-color: rgba(30, 58, 95, 0.35); box-shadow: var(--shadow-md), 0 0 30px rgba(30, 58, 95, 0.05); }
-.why-card--blue::before { background: linear-gradient(90deg, transparent, var(--navy-700), transparent); }
-.why-card--blue:hover::before { opacity: 1; }
-.icon--blue { color: var(--navy-700); background: rgba(30, 58, 95, 0.08); border-color: rgba(30, 58, 95, 0.15); }
-.tag--blue { color: var(--navy-700); background: rgba(30, 58, 95, 0.08); border-color: rgba(30, 58, 95, 0.15); }
-.stat--blue { color: var(--navy-800); }
+.why-card--blue:hover {
+  border-color: rgba(30, 58, 95, 0.35);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(30, 58, 95, 0.05);
+}
+
+.why-card--blue::before {
+  background: linear-gradient(90deg, transparent, var(--navy-700), transparent);
+}
+
+.why-card--blue:hover::before {
+  opacity: 1;
+}
+
+.icon--blue {
+  color: var(--navy-700);
+  background: rgba(30, 58, 95, 0.08);
+  border-color: rgba(30, 58, 95, 0.15);
+}
+
+.tag--blue {
+  color: var(--navy-700);
+  background: rgba(30, 58, 95, 0.08);
+  border-color: rgba(30, 58, 95, 0.15);
+}
+
+.stat--blue {
+  color: var(--navy-800);
+}
 
 /* Emerald */
-.why-card--emerald:hover { border-color: rgba(5, 150, 105, 0.35); box-shadow: var(--shadow-md), 0 0 30px rgba(5, 150, 105, 0.05); }
-.why-card--emerald::before { background: linear-gradient(90deg, transparent, var(--emerald-500), transparent); }
-.why-card--emerald:hover::before { opacity: 1; }
-.icon--emerald { color: var(--emerald-700); background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.15); }
-.tag--emerald { color: var(--emerald-700); background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.15); }
-.stat--emerald { color: var(--emerald-700); }
+.why-card--emerald:hover {
+  border-color: rgba(5, 150, 105, 0.35);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(5, 150, 105, 0.05);
+}
+
+.why-card--emerald::before {
+  background: linear-gradient(90deg, transparent, var(--emerald-500), transparent);
+}
+
+.why-card--emerald:hover::before {
+  opacity: 1;
+}
+
+.icon--emerald {
+  color: var(--emerald-700);
+  background: rgba(5, 150, 105, 0.08);
+  border-color: rgba(5, 150, 105, 0.15);
+}
+
+.tag--emerald {
+  color: var(--emerald-700);
+  background: rgba(5, 150, 105, 0.08);
+  border-color: rgba(5, 150, 105, 0.15);
+}
+
+.stat--emerald {
+  color: var(--emerald-700);
+}
 
 /* Responsive */
 @media (max-width: 1100px) {
@@ -208,6 +254,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+
   .why__header {
     margin-bottom: 40px;
   }
@@ -218,10 +265,12 @@
     margin-bottom: 28px;
     gap: 12px;
   }
+
   .why__grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
+
   .why-card {
     padding: 24px 20px;
     gap: 10px;
@@ -232,13 +281,24 @@
   .why__header {
     margin-bottom: 24px;
   }
+
   .why-card {
     padding: 20px 16px;
     gap: 10px;
   }
-  .why-card__headline { font-size: 16px; }
-  .why-card__desc     { font-size: 13.5px; }
-  .why-stat-value     { font-size: 26px; }
+
+  .why-card__headline {
+    font-size: 16px;
+  }
+
+  .why-card__desc {
+    font-size: 13.5px;
+  }
+
+  .why-stat-value {
+    font-size: 26px;
+  }
+
   .why-card__icon {
     width: 42px;
     height: 42px;

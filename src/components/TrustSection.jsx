@@ -58,8 +58,6 @@ export default function TrustSection() {
 
   return (
     <section id="trust" className="trust-section section">
-      <div className="divider" />
-
       <div className="container">
         <motion.div
           className="trust__header"

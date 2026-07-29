@@ -56,32 +56,96 @@
 
 /* Color variants */
 /* Teal */
-.stat-color--teal .trust__stat-icon { color: var(--teal-700); background: rgba(13, 148, 136, 0.08); border-color: rgba(13, 148, 136, 0.15); }
-.stat-color--teal:hover { border-color: rgba(13, 148, 136, 0.35); }
-.stat-color--teal .trust__stat-number { color: var(--teal-700); }
-.stat-color--teal::before { background: linear-gradient(90deg, transparent, var(--teal-500), transparent); }
-.stat-color--teal:hover::before { opacity: 1; }
+.stat-color--teal .trust__stat-icon {
+  color: var(--teal-700);
+  background: rgba(13, 148, 136, 0.08);
+  border-color: rgba(13, 148, 136, 0.15);
+}
+
+.stat-color--teal:hover {
+  border-color: rgba(13, 148, 136, 0.35);
+}
+
+.stat-color--teal .trust__stat-number {
+  color: var(--teal-700);
+}
+
+.stat-color--teal::before {
+  background: linear-gradient(90deg, transparent, var(--teal-500), transparent);
+}
+
+.stat-color--teal:hover::before {
+  opacity: 1;
+}
 
 /* Emerald */
-.stat-color--emerald .trust__stat-icon { color: var(--emerald-700); background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.15); }
-.stat-color--emerald:hover { border-color: rgba(5, 150, 105, 0.35); }
-.stat-color--emerald .trust__stat-number { color: var(--emerald-700); }
-.stat-color--emerald::before { background: linear-gradient(90deg, transparent, var(--emerald-500), transparent); }
-.stat-color--emerald:hover::before { opacity: 1; }
+.stat-color--emerald .trust__stat-icon {
+  color: var(--emerald-700);
+  background: rgba(5, 150, 105, 0.08);
+  border-color: rgba(5, 150, 105, 0.15);
+}
+
+.stat-color--emerald:hover {
+  border-color: rgba(5, 150, 105, 0.35);
+}
+
+.stat-color--emerald .trust__stat-number {
+  color: var(--emerald-700);
+}
+
+.stat-color--emerald::before {
+  background: linear-gradient(90deg, transparent, var(--emerald-500), transparent);
+}
+
+.stat-color--emerald:hover::before {
+  opacity: 1;
+}
 
 /* Blue (Navy in Light theme) */
-.stat-color--blue .trust__stat-icon { color: var(--navy-700); background: rgba(30, 58, 95, 0.08); border-color: rgba(30, 58, 95, 0.15); }
-.stat-color--blue:hover { border-color: rgba(30, 58, 95, 0.35); }
-.stat-color--blue .trust__stat-number { color: var(--navy-800); }
-.stat-color--blue::before { background: linear-gradient(90deg, transparent, var(--navy-700), transparent); }
-.stat-color--blue:hover::before { opacity: 1; }
+.stat-color--blue .trust__stat-icon {
+  color: var(--navy-700);
+  background: rgba(30, 58, 95, 0.08);
+  border-color: rgba(30, 58, 95, 0.15);
+}
+
+.stat-color--blue:hover {
+  border-color: rgba(30, 58, 95, 0.35);
+}
+
+.stat-color--blue .trust__stat-number {
+  color: var(--navy-800);
+}
+
+.stat-color--blue::before {
+  background: linear-gradient(90deg, transparent, var(--navy-700), transparent);
+}
+
+.stat-color--blue:hover::before {
+  opacity: 1;
+}
 
 /* Gold */
-.stat-color--gold .trust__stat-icon { color: var(--gold-500); background: rgba(180, 83, 9, 0.08); border-color: rgba(180, 83, 9, 0.15); }
-.stat-color--gold:hover { border-color: rgba(180, 83, 9, 0.35); }
-.stat-color--gold .trust__stat-number { color: var(--gold-500); }
-.stat-color--gold::before { background: linear-gradient(90deg, transparent, var(--gold-500), transparent); }
-.stat-color--gold:hover::before { opacity: 1; }
+.stat-color--gold .trust__stat-icon {
+  color: var(--gold-500);
+  background: rgba(180, 83, 9, 0.08);
+  border-color: rgba(180, 83, 9, 0.15);
+}
+
+.stat-color--gold:hover {
+  border-color: rgba(180, 83, 9, 0.35);
+}
+
+.stat-color--gold .trust__stat-number {
+  color: var(--gold-500);
+}
+
+.stat-color--gold::before {
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+}
+
+.stat-color--gold:hover::before {
+  opacity: 1;
+}
 
 .trust__stat-icon {
   width: 42px;
@@ -170,23 +234,29 @@
   .trust__header {
     margin-bottom: 28px;
   }
+
   .trust__stats-grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
+
   .trust__stat-card {
     padding: 18px 14px;
   }
+
   .trust__stat-number {
     font-size: clamp(20px, 5vw, 30px);
   }
+
   .trust__stat-label {
     font-size: 12px;
   }
+
   .trust__badges {
     gap: 8px;
     padding-top: 24px;
   }
+
   .trust__badge-item {
     font-size: 12px;
     padding: 8px 14px;
@@ -198,9 +268,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
+
   .trust__stat-card {
     padding: 14px 10px;
   }
+
   .trust__stat-icon {
     width: 36px;
     height: 36px;

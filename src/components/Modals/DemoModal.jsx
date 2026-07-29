@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Play, Zap, Shield, BarChart2, TrendingUp, Cpu, CheckCircle } from 'lucide-react'
+import { X, Play } from 'lucide-react'
 import { useModal } from '../../context/ModalContext'
 import './Modal.css'
 

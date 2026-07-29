@@ -10,30 +10,75 @@ const navLinks = [
     label: 'Markets',
     target: '#trust',
     children: [
-      { label: 'Equities Market', target: '#trust' },
-      { label: 'F&O Intelligence', target: '#research' },
-      { label: 'Commodities Data', target: '#trust' },
-      { label: 'Smart Scanners', target: '#features' },
+      { label: 'Equities Market', target: '#hero', actionType: 'heroTab', payload: 'nifty' },
+      { label: 'F&O Intelligence', target: '#research', actionType: 'researchTab', payload: 'F&O' },
+      { label: 'Commodities Data', target: '#hero', actionType: 'heroTab', payload: 'gold' },
+      {
+        label: 'Smart Scanners',
+        target: '#features',
+        actionType: 'modal',
+        payload: {
+          title: 'Advanced Real-Time Market Scanners',
+          subtitle: 'Smart Scanners · Automation',
+          content: 'Scan 4000+ stocks in real time with 150+ filters. Identify patterns, volume breakouts, and price confluences instantly.'
+        }
+      },
     ]
   },
   {
     label: 'Features',
     target: '#features',
     children: [
-      { label: 'Real-Time Insights', target: '#features' },
-      { label: 'AI Signals', target: '#features' },
-      { label: 'Smart Alerts', target: '#features' },
-      { label: 'Portfolio Tracker', target: '#features' },
+      {
+        label: 'Real-Time Insights',
+        target: '#features',
+        actionType: 'modal',
+        payload: {
+          title: 'Live Market Intelligence, Zero Delay',
+          subtitle: 'Real-Time Insights · Core Stream',
+          content: 'Tick-by-tick data streams, order book depth, and level 2 market data — all rendered in real time for precision decision-making.'
+        }
+      },
+      {
+        label: 'AI Signals',
+        target: '#features',
+        actionType: 'modal',
+        payload: {
+          title: 'Signals That Act Before the Market Does',
+          subtitle: 'AI-Assisted Signals · Intelligence',
+          content: 'Our AI models analyze price action, volume, and sentiment to deliver high-confidence trade ideas with clear entry, target, and SL levels.'
+        }
+      },
+      {
+        label: 'Smart Alerts',
+        target: '#features',
+        actionType: 'modal',
+        payload: {
+          title: 'Never Miss a Move',
+          subtitle: 'Smart Alerts · Automation',
+          content: 'Customizable price, volume, pattern, and news alerts across all your watchlisted instruments.'
+        }
+      },
+      {
+        label: 'Advanced Watchlists',
+        target: '#features',
+        actionType: 'modal',
+        payload: {
+          title: 'Multi-screen Watchlists',
+          subtitle: 'Advanced Watchlists · Multi-Screen',
+          content: 'Monitor 500+ instruments simultaneously with custom columns and heat map visualization.'
+        }
+      },
     ]
   },
   {
     label: 'Research',
     target: '#research',
     children: [
-      { label: 'Analyst Calls', target: '#research' },
-      { label: 'Swing Signals', target: '#research' },
-      { label: 'Intraday Ideas', target: '#research' },
-      { label: 'F&O Strategies', target: '#research' },
+      { label: 'Analyst Calls', target: '#research', actionType: 'researchTab', payload: 'Intraday' },
+      { label: 'Swing Signals', target: '#research', actionType: 'researchTab', payload: 'Swing' },
+      { label: 'Intraday Ideas', target: '#research', actionType: 'researchTab', payload: 'Intraday' },
+      { label: 'F&O Strategies', target: '#research', actionType: 'researchTab', payload: 'F&O' },
     ]
   },
   { label: 'Terminal', target: '#platform' },
@@ -45,23 +90,64 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
-  const { openAuth, openAccount } = useModal()
+  const [activeSection, setActiveSection] = useState('hero')
+  
+  const { 
+    openAuth, 
+    openAccount, 
+    openInfo, 
+    setActiveResearchTab, 
+    setHeroActiveTab 
+  } = useModal()
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+
+      const sections = ['hero', 'trust', 'features', 'research', 'platform', 'why', 'testimonials']
+      let currentSection = 'hero'
+      const scrollPos = window.scrollY + 120
+
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId)
+        if (el && el.offsetTop <= scrollPos) {
+          currentSection = sectionId
+        }
+      }
+      setActiveSection(currentSection)
+    }
+
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavClick = (targetId) => {
+  const handleNavClick = (targetId, action) => {
     setActiveDropdown(null)
     setMobileOpen(false)
+
     if (targetId) {
       const el = document.querySelector(targetId)
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' })
       }
     }
+
+    if (action) {
+      const { actionType, payload } = action
+      if (actionType === 'researchTab') {
+        setActiveResearchTab(payload)
+      } else if (actionType === 'heroTab') {
+        setHeroActiveTab(payload)
+      } else if (actionType === 'modal') {
+        setTimeout(() => {
+          openInfo(payload)
+        }, 500)
+      }
+    }
+  }
+
+  const isLinkActive = (link) => {
+    return activeSection === link.target.replace('#', '')
   }
 
   return (
@@ -87,7 +173,7 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className="navbar__link"
+                className={`navbar__link ${isLinkActive(link) ? 'navbar__link--active' : ''}`}
                 onClick={() => handleNavClick(link.target)}
               >
                 {link.label}
@@ -107,7 +193,7 @@ export default function Navbar() {
                       <button
                         key={child.label}
                         className="navbar__dropdown-item"
-                        onClick={() => handleNavClick(child.target)}
+                        onClick={() => handleNavClick(child.target, child)}
                       >
                         {child.label}
                       </button>
@@ -167,12 +253,31 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06 }}
                 >
-                  <button
-                    className="navbar__mobile-link"
-                    onClick={() => handleNavClick(link.target)}
-                  >
-                    {link.label}
-                  </button>
+                  {link.children ? (
+                    <div className="navbar__mobile-group">
+                      <div className="navbar__mobile-group-header">
+                        {link.label}
+                      </div>
+                      <div className="navbar__mobile-group-children">
+                        {link.children.map((child) => (
+                          <button
+                            key={child.label}
+                            className="navbar__mobile-child-link"
+                            onClick={() => handleNavClick(child.target, child)}
+                          >
+                            {child.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      className="navbar__mobile-link"
+                      onClick={() => handleNavClick(link.target)}
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </motion.div>
               ))}
               <div className="navbar__mobile-ctas">

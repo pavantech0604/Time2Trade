@@ -81,17 +81,6 @@ export default function WhySection() {
             <br />
             as traders ourselves
           </h2>
-          <motion.div
-            className="why__manifesto-card"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="manifesto-card__quote">
-              “TIME2TRADE was created by market practitioners who were frustrated with the gap between institutional-quality research and retail trader access. <span className="manifesto-highlight">We closed that gap.</span>”
-            </div>
-          </motion.div>
         </motion.div>
 
         <div className="why__grid">

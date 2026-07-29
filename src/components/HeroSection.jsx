@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Play, TrendingUp, Shield, Users, Building2, MapPin, Award, Landmark, UserCheck, ChevronDown, Sun, Moon, Coins, Sparkles, Clock } from 'lucide-react'
+import { ArrowRight, Play, Shield, TrendingUp, Users, Building2, MapPin, Award, Landmark, UserCheck, ChevronDown, Sun, Moon, Coins, Sparkles, Clock } from 'lucide-react'
 import { useModal } from '../context/ModalContext'
 import TickerStrip from './TickerStrip'
 import './HeroSection.css'
@@ -200,9 +200,15 @@ const MARKET_ASSETS = {
 
 /* ---- Mini Dashboard Mockup ---- */
 function DashboardMockup() {
+  const { heroActiveTab, setHeroActiveTab } = useModal()
+  const activeTab = heroActiveTab || 'nifty'
   const [session, setSession] = useState(getMarketSessionInfo)
-  const [activeTab, setActiveTab] = useState(session.defaultTab)
   const [priceIdx, setPriceIdx] = useState(0)
+
+  // Initialize context tab state once on mount based on market session
+  useEffect(() => {
+    setHeroActiveTab(getMarketSessionInfo().defaultTab)
+  }, [setHeroActiveTab])
 
   // 1. Real-time automatic IST market clock check (runs every 5 seconds)
   useEffect(() => {
@@ -210,13 +216,13 @@ function DashboardMockup() {
       const updated = getMarketSessionInfo()
       setSession(prev => {
         if (prev.isEquityOpen !== updated.isEquityOpen) {
-          setActiveTab(updated.defaultTab)
+          setHeroActiveTab(updated.defaultTab)
         }
         return updated
       })
     }, 5000)
     return () => clearInterval(clockTimer)
-  }, [])
+  }, [setHeroActiveTab])
 
   const currentAsset = MARKET_ASSETS[activeTab] || MARKET_ASSETS.nifty
 

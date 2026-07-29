@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Check, ArrowRight, ShieldCheck, Zap, User, CreditCard, Landmark, CheckCircle2, MapPin } from 'lucide-react'
+import { X, Check, ArrowRight, User, Landmark, CheckCircle2, ShieldCheck } from 'lucide-react'
 import { useModal } from '../../context/ModalContext'
 import { COMPANY_INFO, ADDRESS_VALIDATION } from '../../constants/companyInfo'
 import './Modal.css'

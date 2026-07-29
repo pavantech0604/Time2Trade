@@ -5,6 +5,8 @@ const ModalContext = createContext()
 export function ModalProvider({ children }) {
   const [activeModal, setActiveModal] = useState(null) // 'auth' | 'account' | 'demo' | 'info' | null
   const [modalData, setModalData] = useState({})
+  const [activeResearchTab, setActiveResearchTab] = useState('Intraday')
+  const [heroActiveTab, setHeroActiveTab] = useState('nifty')
 
   const openAuth = (tab = 'signin') => {
     setModalData({ tab })
@@ -41,6 +43,10 @@ export function ModalProvider({ children }) {
         openDemo,
         openInfo,
         closeModal,
+        activeResearchTab,
+        setActiveResearchTab,
+        heroActiveTab,
+        setHeroActiveTab,
       }}
     >
       {children}

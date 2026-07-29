@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion'
-import {
-  Zap, Eye, TrendingUp, Bell, BarChart2, Shield,
-  BookOpen, Target, Activity, PieChart, Layers, Search
-} from 'lucide-react'
+import { Activity, Zap, Bell, BookOpen, Shield, Eye } from 'lucide-react'
 import { useModal } from '../context/ModalContext'
 import './FeaturesSection.css'
 

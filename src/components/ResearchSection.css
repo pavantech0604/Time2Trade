@@ -84,7 +84,9 @@
   scrollbar-width: none;
 }
 
-.research__tabs::-webkit-scrollbar { display: none; }
+.research__tabs::-webkit-scrollbar {
+  display: none;
+}
 
 .research__tab {
   padding: 8px 15px;
@@ -182,9 +184,23 @@
   text-transform: uppercase;
 }
 
-.call-action.buy { background: rgba(16, 185, 129, 0.08); color: var(--emerald-700); border: 1px solid rgba(16, 185, 129, 0.25); }
-.call-action.sell { background: rgba(220, 38, 38, 0.08); color: var(--red-600); border: 1px solid rgba(220, 38, 38, 0.2); }
-.call-action.learn { background: rgba(30, 58, 95, 0.08); color: var(--navy-700); border: 1px solid rgba(30, 58, 95, 0.2); }
+.call-action.buy {
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--emerald-700);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.call-action.sell {
+  background: rgba(220, 38, 38, 0.08);
+  color: var(--red-600);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.call-action.learn {
+  background: rgba(30, 58, 95, 0.08);
+  color: var(--navy-700);
+  border: 1px solid rgba(30, 58, 95, 0.2);
+}
 
 .call-symbol {
   font-size: 15px;
@@ -241,7 +257,9 @@
   color: var(--text-muted);
 }
 
-.level-item svg { opacity: 0.6; }
+.level-item svg {
+  opacity: 0.6;
+}
 
 .level-label {
   font-size: 10.5px;
@@ -256,10 +274,21 @@
   font-size: 12.5px;
 }
 
-.level-target { color: var(--emerald-700); }
-.level-target .level-value { color: var(--emerald-700); }
-.level-sl { color: var(--red-600); }
-.level-sl .level-value { color: var(--red-600); }
+.level-target {
+  color: var(--emerald-700);
+}
+
+.level-target .level-value {
+  color: var(--emerald-700);
+}
+
+.level-sl {
+  color: var(--red-600);
+}
+
+.level-sl .level-value {
+  color: var(--red-600);
+}
 
 .call-card__course-meta {
   display: flex;
@@ -273,9 +302,11 @@
     grid-template-columns: 1fr;
     gap: 28px;
   }
+
   .research__header {
     position: static;
   }
+
   .research__stats {
     flex-wrap: wrap;
     gap: 12px;
@@ -286,12 +317,15 @@
   .research__layout {
     gap: 20px;
   }
+
   .research__header .display-md {
     font-size: clamp(20px, 4.5vw, 30px);
   }
+
   .research__tabs {
     gap: 2px;
   }
+
   .research__tab {
     padding: 7px 12px;
     font-size: 12.5px;
@@ -303,9 +337,11 @@
     gap: 8px;
     padding: 12px 0;
   }
+
   .res-stat-value {
     font-size: 20px;
   }
+
   .research__tab {
     padding: 7px 10px;
     font-size: 12px;
@@ -316,6 +352,7 @@
   .research__header .display-md {
     font-size: clamp(18px, 5vw, 26px);
   }
+
   .research__tabs {
     padding: 3px;
   }
