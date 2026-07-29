@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Shield, FileText, CheckCircle2, AlertCircle } from 'lucide-react'
+import { X, Shield, FileText, CheckCircle2, AlertCircle, MapPin } from 'lucide-react'
 import { useModal } from '../../context/ModalContext'
+import CompanyAddress from '../CompanyAddress'
+import { COMPANY_INFO } from '../../constants/companyInfo'
 import './Modal.css'
 
 export default function InfoModal() {
@@ -92,9 +94,18 @@ export default function InfoModal() {
                 <p style={{ marginBottom: '14px' }}>
                   <strong>Market Risk Warning:</strong> Trading in equities, derivatives (F&O), commodities, and currencies involves substantial risk of loss and is not suitable for every investor. Valuation of investments can fluctuate, and investors may lose more than their initial investment.
                 </p>
-                <p>
+                <p style={{ marginBottom: '14px' }}>
                   <strong>Data Privacy Policy:</strong> All customer information is encrypted using bank-grade AES-256 standards. We do not sell or share personal trading data with third parties.
                 </p>
+                <div style={{ marginTop: '16px', padding: '14px', background: 'var(--surface-1)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
+                  <strong style={{ color: 'var(--navy-900)', display: 'block', marginBottom: '4px' }}>
+                    Registered Office Address — {COMPANY_INFO.legalName}:
+                  </strong>
+                  <div style={{ fontSize: '13.5px', color: 'var(--text-secondary)', display: 'flex', alignItems: 'flex-start', gap: '8px', marginTop: '4px' }}>
+                    <MapPin size={16} style={{ flexShrink: 0, marginTop: '2px', color: 'var(--teal-700)' }} />
+                    <CompanyAddress variant="formatted" />
+                  </div>
+                </div>
                 <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'flex-end' }}>
                   <button className="btn btn-navy" onClick={closeModal}>Close Window</button>
                 </div>

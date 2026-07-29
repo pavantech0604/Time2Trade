@@ -225,6 +225,16 @@
   font-weight: 700;
 }
 
+.modal-form__error {
+  font-size: 12px;
+  color: var(--red-600);
+  margin-top: 4px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 /* Modal Responsive Mobile adjustments */
 @media (max-width: 640px) {
   .modal-backdrop {

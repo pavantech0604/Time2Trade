@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Check, ArrowRight, ShieldCheck, Zap, User, CreditCard, Landmark, CheckCircle2 } from 'lucide-react'
+import { X, Check, ArrowRight, ShieldCheck, Zap, User, CreditCard, Landmark, CheckCircle2, MapPin } from 'lucide-react'
 import { useModal } from '../../context/ModalContext'
+import { COMPANY_INFO, ADDRESS_VALIDATION } from '../../constants/companyInfo'
 import './Modal.css'
 
 export default function AccountModal() {
@@ -12,15 +13,37 @@ export default function AccountModal() {
     email: '',
     pan: '',
     dob: '',
+    address: `${COMPANY_INFO.address.addressLine1}, ${COMPANY_INFO.address.addressLine2}, ${COMPANY_INFO.address.locality}`,
+    pincode: COMPANY_INFO.address.pincode,
     bankAccount: '',
     ifsc: '',
   })
+  const [errors, setErrors] = useState({})
   const [completed, setCompleted] = useState(false)
 
   if (activeModal !== 'account') return null
 
   const handleNext = (e) => {
     e.preventDefault()
+    if (step === 2) {
+      const isAddressValid = ADDRESS_VALIDATION.validateAddress(formData.address)
+      const isPincodeValid = ADDRESS_VALIDATION.validatePincode(formData.pincode)
+
+      const newErrors = {}
+      if (!isAddressValid) {
+        newErrors.address = 'Invalid address. Only letters, numbers, spaces, commas, periods, hyphens, slashes, hash & parens allowed.'
+      }
+      if (!isPincodeValid) {
+        newErrors.pincode = 'PIN Code must be a 6-digit number starting with a non-zero digit.'
+      }
+
+      if (Object.keys(newErrors).length > 0) {
+        setErrors(newErrors)
+        return
+      }
+    }
+
+    setErrors({})
     if (step < 3) {
       setStep(s => s + 1)
     } else {
@@ -133,6 +156,31 @@ export default function AccountModal() {
                         value={formData.dob}
                         onChange={e => setFormData({ ...formData, dob: e.target.value })}
                       />
+                    </div>
+                    <div className="modal-form__group">
+                      <label className="modal-form__label">Residential Address (Allows commas, periods & abbreviations)</label>
+                      <input
+                        type="text"
+                        className="modal-form__input"
+                        placeholder={`${COMPANY_INFO.address.addressLine1}, ${COMPANY_INFO.address.addressLine2}, ${COMPANY_INFO.address.locality}`}
+                        required
+                        value={formData.address}
+                        onChange={e => setFormData({ ...formData, address: e.target.value })}
+                      />
+                      {errors.address && <div className="modal-form__error">{errors.address}</div>}
+                    </div>
+                    <div className="modal-form__group">
+                      <label className="modal-form__label">PIN Code (6-digit format)</label>
+                      <input
+                        type="text"
+                        className="modal-form__input"
+                        placeholder={COMPANY_INFO.address.pincode}
+                        maxLength={6}
+                        required
+                        value={formData.pincode}
+                        onChange={e => setFormData({ ...formData, pincode: e.target.value.replace(/\D/g, '') })}
+                      />
+                      {errors.pincode && <div className="modal-form__error">{errors.pincode}</div>}
                     </div>
                   </>
                 )}

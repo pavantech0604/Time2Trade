@@ -1,5 +1,7 @@
 import { Mail, Phone, MapPin, Share2, Rss, PlayCircle, Heart } from 'lucide-react'
 import BrandLogo from './BrandLogo'
+import CompanyAddress from './CompanyAddress'
+import { COMPANY_INFO } from '../constants/companyInfo'
 import { useModal } from '../context/ModalContext'
 import './Footer.css'
 
@@ -80,17 +82,17 @@ export default function Footer() {
 
             {/* Contact */}
             <div className="footer__contact">
-              <a href="tel:18001234567" className="footer__contact-item">
+              <a href={`tel:${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`} className="footer__contact-item">
                 <Phone size={14} />
-                1800 123 4567 (Toll Free)
+                {COMPANY_INFO.phone}
               </a>
-              <a href="mailto:support@time2trade.in" className="footer__contact-item">
+              <a href={`mailto:${COMPANY_INFO.email}`} className="footer__contact-item">
                 <Mail size={14} />
-                support@time2trade.in
+                {COMPANY_INFO.email}
               </a>
-              <div className="footer__contact-item">
-                <MapPin size={14} />
-                Bandra Kurla Complex, Mumbai, India
+              <div className="footer__contact-item footer__address-item" title="Registered Office Address">
+                <MapPin size={14} className="footer__address-icon" />
+                <CompanyAddress variant="formatted" />
               </div>
             </div>
 

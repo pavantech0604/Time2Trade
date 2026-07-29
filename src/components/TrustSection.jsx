@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Users, Building2, MapPin, Award, Landmark, UserCheck } from 'lucide-react'
+import { TrendingUp, Zap, Target, Activity, ShieldCheck, Star } from 'lucide-react'
 import { useModal } from '../context/ModalContext'
 import './TrustSection.css'
 
-function CountUp({ end, suffix = '', prefix = '', duration = 2000 }) {
+function CountUp({ end, suffix = '', prefix = '', duration = 2500 }) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
+  const inView = useInView(ref, { once: true, margin: '-40px' })
 
   useEffect(() => {
     if (!inView) return
@@ -18,7 +18,7 @@ function CountUp({ end, suffix = '', prefix = '', duration = 2000 }) {
       const elapsed = now - startTime
       const progress = Math.min(elapsed / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.floor(eased * endValue * 10) / 10)
+      setCount(eased * endValue)
       if (progress < 1) requestAnimationFrame(tick)
       else setCount(endValue)
     }
@@ -26,20 +26,22 @@ function CountUp({ end, suffix = '', prefix = '', duration = 2000 }) {
     requestAnimationFrame(tick)
   }, [inView, end, duration])
 
+  const formattedCount = Math.floor(count).toLocaleString('en-IN')
+
   return (
     <span ref={ref}>
-      {prefix}{typeof count === 'number' && end % 1 !== 0 ? count.toFixed(1) : Math.floor(count)}{suffix}
+      {prefix}{formattedCount}{suffix}
     </span>
   )
 }
 
 const stats = [
-  { icon: Users, value: 70, suffix: 'K+', label: 'Active Traders', sub: 'Across India', color: 'teal' },
-  { icon: Building2, value: 300, suffix: '+', label: 'Corporate Relationships', sub: 'Across major industries', color: 'emerald' },
-  { icon: MapPin, value: 150, suffix: '+', label: 'Cities Covered', sub: 'Pan-India footprint', color: 'blue' },
-  { icon: Award, value: 80, suffix: '+ Yrs', label: 'Market Experience', sub: 'Combined leadership tenure', color: 'gold' },
-  { icon: Landmark, value: 150, suffix: '+', label: 'Institutional Empanelments', sub: 'Banks & institutions', color: 'teal' },
-  { icon: UserCheck, value: 50, suffix: '+', label: 'Research Analysts', sub: 'Across research domains', color: 'blue' },
+  { icon: TrendingUp, value: 4500, prefix: '₹', suffix: ' Cr+', label: 'Daily Trading Volume', sub: 'Across NSE, BSE & MCX', color: 'teal' },
+  { icon: Zap, value: 10, prefix: '< ', suffix: ' ms', label: 'Execution Speed', sub: 'Ultra-low latency infrastructure', color: 'emerald' },
+  { icon: Target, value: 95, suffix: '%', label: 'Signal Accuracy', sub: 'AI & Quant research verified', color: 'blue' },
+  { icon: Activity, value: 4000, suffix: '+', label: 'Stocks Scanned', sub: 'Real-time market radar', color: 'gold' },
+  { icon: ShieldCheck, value: 100, suffix: '%', label: 'Capital & Risk Protection', sub: 'Automated stop-loss limits', color: 'teal' },
+  { icon: Star, value: 99, suffix: '.9%', label: 'Platform Uptime', sub: 'Institutional SLA reliability', color: 'blue' },
 ]
 
 const badges = [
@@ -94,7 +96,7 @@ export default function TrustSection() {
                 <stat.icon size={20} />
               </div>
               <div className="trust__stat-number">
-                <CountUp end={stat.value} suffix={stat.suffix} duration={2200} />
+                <CountUp end={stat.value} prefix={stat.prefix || ''} suffix={stat.suffix} duration={2200} />
               </div>
               <div className="trust__stat-label">{stat.label}</div>
               <div className="trust__stat-sub">{stat.sub}</div>

@@ -18,7 +18,7 @@
 
 .why__header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 56px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +27,49 @@
 
 .why__header .display-md {
   color: var(--navy-900);
+}
+
+/* Manifesto Card Styling */
+.why__manifesto-card {
+  max-width: 720px;
+  margin: 12px auto 0;
+  padding: 18px 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(13, 148, 136, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(13, 148, 136, 0.08), 0 2px 8px rgba(15, 23, 36, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.why__manifesto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0d9488, #d97706, transparent);
+}
+
+.manifesto-card__quote {
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.6;
+  color: var(--navy-900);
+  font-weight: 500;
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+.manifesto-highlight {
+  color: var(--teal-700);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--teal-600), var(--emerald-600));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .why__grid {
