@@ -83,6 +83,7 @@ const navLinks = [
   },
   { label: 'Terminal', target: '#platform' },
   { label: 'Why Us', target: '#why' },
+  { label: 'Branches', target: '#branches' },
   { label: 'Reviews', target: '#testimonials' },
 ]
 
@@ -95,6 +96,7 @@ export default function Navbar() {
   const { 
     openAuth, 
     openAccount, 
+    openDemo, 
     openInfo, 
     setActiveResearchTab, 
     setHeroActiveTab 
@@ -104,7 +106,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
 
-      const sections = ['hero', 'trust', 'features', 'research', 'platform', 'why', 'testimonials']
+      const sections = ['hero', 'trust', 'features', 'research', 'platform', 'why', 'branches', 'testimonials']
       let currentSection = 'hero'
       const scrollPos = window.scrollY + 120
 

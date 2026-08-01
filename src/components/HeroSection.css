@@ -734,6 +734,12 @@
   gap: 10px;
   padding: 4px 16px;
   border-right: 1px solid rgba(15, 23, 36, 0.08);
+  min-width: 0;
+}
+
+.stat-bar__content {
+  min-width: 0;
+  flex: 1;
 }
 
 .stat-bar__item:last-child {
@@ -768,7 +774,10 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.25;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 1024px) {
@@ -785,11 +794,52 @@
 @media (max-width: 640px) {
   .hero__stat-bar {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 12px 8px;
   }
 
   .stat-bar__item {
     border-right: none;
+    padding: 6px 4px;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .stat-bar__icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .stat-bar__value {
+    font-size: 15px;
+  }
+
+  .stat-bar__label {
+    font-size: 9.5px;
+    letter-spacing: 0.03em;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero__stat-bar {
+    gap: 10px 4px;
+  }
+
+  .stat-bar__item {
+    padding: 4px 2px;
+    gap: 6px;
+  }
+
+  .stat-bar__icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .stat-bar__value {
+    font-size: 14px;
+  }
+
+  .stat-bar__label {
+    font-size: 9px;
   }
 }
 

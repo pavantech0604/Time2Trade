@@ -6,6 +6,7 @@ import ResearchSection from './components/ResearchSection'
 import DashboardShowcase from './components/DashboardShowcase'
 import TestimonialsSection from './components/TestimonialsSection'
 import WhySection from './components/WhySection'
+import BranchesSection from './components/BranchesSection'
 import CtaSection from './components/CtaSection'
 import Footer from './components/Footer'
 import { ModalProvider } from './context/ModalContext'
@@ -28,6 +29,7 @@ function App() {
           <DashboardShowcase />
           <TestimonialsSection />
           <WhySection />
+          <BranchesSection />
           <CtaSection />
         </main>
         <Footer />

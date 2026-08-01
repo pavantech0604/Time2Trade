@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, Check, ArrowRight, User, Landmark, CheckCircle2, ShieldCheck } from 'lucide-react'
 import { useModal } from '../../context/ModalContext'
 import { COMPANY_INFO, ADDRESS_VALIDATION } from '../../constants/companyInfo'
+import { BRANCHES_DATA } from '../../constants/branchesData'
 import './Modal.css'
 
 export default function AccountModal() {
@@ -181,6 +182,21 @@ export default function AccountModal() {
                         onChange={e => setFormData({ ...formData, pincode: e.target.value.replace(/\D/g, '') })}
                       />
                       {errors.pincode && <div className="modal-form__error">{errors.pincode}</div>}
+                    </div>
+                    <div className="modal-form__group">
+                      <label className="modal-form__label">Preferred Regional Branch / RM Desk</label>
+                      <select
+                        className="modal-form__input"
+                        value={formData.preferredBranch || 'mumbai-hq'}
+                        onChange={e => setFormData({ ...formData, preferredBranch: e.target.value })}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        {BRANCHES_DATA.map(b => (
+                          <option key={b.id} value={b.id}>
+                            {b.name} ({b.city}) — {b.type}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </>
                 )}

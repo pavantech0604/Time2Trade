@@ -32,6 +32,7 @@ const footerLinks = {
   ],
   Company: [
     { label: 'About Us', target: '#why' },
+    { label: 'Branch Network', target: '#branches' },
     { label: 'Our Team', target: '#why' },
     { label: 'Careers', target: '#why' },
     { label: 'Press Kit', target: '#why' },

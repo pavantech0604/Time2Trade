@@ -255,54 +255,43 @@ function DashboardMockup() {
         </div>
       </div>
 
-      {/* Symbol Switcher Tabs (Auto-configured based on market state) */}
+      {/* Symbol Switcher Tabs */}
       <div className="mockup__tabs-strip">
-        {session.isEquityOpen ? (
-          <>
-            <button
-              className={`mockup__tab ${activeTab === 'nifty' ? 'mockup__tab--active' : ''}`}
-              onClick={() => { setActiveTab('nifty'); setPriceIdx(0); }}
-            >
-              <span className="tab-indicator live" />
-              NIFTY 50
-            </button>
-            <button
-              className={`mockup__tab ${activeTab === 'banknifty' ? 'mockup__tab--active' : ''}`}
-              onClick={() => { setActiveTab('banknifty'); setPriceIdx(0); }}
-            >
-              BANK NIFTY
-            </button>
-            <button
-              className={`mockup__tab ${activeTab === 'sensex' ? 'mockup__tab--active' : ''}`}
-              onClick={() => { setActiveTab('sensex'); setPriceIdx(0); }}
-            >
-              SENSEX
-            </button>
-          </>
-        ) : (
-          <>
-            <button
-              className={`mockup__tab ${activeTab === 'gold' ? 'mockup__tab--active mockup__tab--gold' : ''}`}
-              onClick={() => { setActiveTab('gold'); setPriceIdx(0); }}
-            >
-              <Coins size={12} className="tab-icon-gold" />
-              MCX GOLD
-            </button>
-            <button
-              className={`mockup__tab ${activeTab === 'silver' ? 'mockup__tab--active mockup__tab--silver' : ''}`}
-              onClick={() => { setActiveTab('silver'); setPriceIdx(0); }}
-            >
-              <Sparkles size={12} className="tab-icon-silver" />
-              MCX SILVER
-            </button>
-            <button
-              className={`mockup__tab ${activeTab === 'sensex' ? 'mockup__tab--active' : ''}`}
-              onClick={() => { setActiveTab('sensex'); setPriceIdx(0); }}
-            >
-              SENSEX
-            </button>
-          </>
-        )}
+        <button
+          className={`mockup__tab ${activeTab === 'nifty' ? 'mockup__tab--active' : ''}`}
+          onClick={() => { setHeroActiveTab('nifty'); setPriceIdx(0); }}
+        >
+          <span className="tab-indicator live" />
+          NIFTY 50
+        </button>
+        <button
+          className={`mockup__tab ${activeTab === 'banknifty' ? 'mockup__tab--active' : ''}`}
+          onClick={() => { setHeroActiveTab('banknifty'); setPriceIdx(0); }}
+        >
+          <span className="tab-indicator live" />
+          BANK NIFTY
+        </button>
+        <button
+          className={`mockup__tab ${activeTab === 'sensex' ? 'mockup__tab--active' : ''}`}
+          onClick={() => { setHeroActiveTab('sensex'); setPriceIdx(0); }}
+        >
+          <span className="tab-indicator live" />
+          SENSEX
+        </button>
+        <button
+          className={`mockup__tab ${activeTab === 'gold' ? 'mockup__tab--active mockup__tab--gold' : ''}`}
+          onClick={() => { setHeroActiveTab('gold'); setPriceIdx(0); }}
+        >
+          <Coins size={12} className="tab-icon-gold" />
+          MCX GOLD
+        </button>
+        <button
+          className={`mockup__tab ${activeTab === 'silver' ? 'mockup__tab--active mockup__tab--silver' : ''}`}
+          onClick={() => { setHeroActiveTab('silver'); setPriceIdx(0); }}
+        >
+          <Sparkles size={12} className="tab-icon-silver" />
+          MCX SILVER
+        </button>
       </div>
 
       {/* Main Price Row */}
@@ -427,7 +416,7 @@ function StatBarItem({ icon: Icon, numValue, suffix = '+', prefix = '', label, i
       <div className="stat-bar__icon">
         <Icon size={16} />
       </div>
-      <div>
+      <div className="stat-bar__content">
         <div className="stat-bar__value">
           {prefix}<HeroCountUp num={numValue} isFloat={isFloat} />{suffix}
         </div>
